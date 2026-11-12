@@ -1,13 +1,15 @@
 import { useState } from 'react'
 
-function TaskItem({ task, setTaskList }) {
-  const {id, title, description, isCompleted} = task;
+function TaskItem({ taskProp, setTaskList, updateTask }) {
+  const [task, setTask] = useState(taskProp);
+  const {id, title, description, isCompleted} = taskProp;
 
-  const handleChange = (evt) => {
-    console.log(evt.target.checked);
+  const handleChange = (evt) => { // TODO: Færdiggør herfra
+    // console.log(evt.target.checked);
     const status = evt.target.checked;
-    task.isCompleted = status;
-
+    console.log("status: ",status)
+    
+    setTask({...task, isCompleted:status})
   }
 
   return (

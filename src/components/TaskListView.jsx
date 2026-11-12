@@ -11,12 +11,17 @@ function TaskListView({ taskList, setTaskList }) {
     setTaskList(newTaskList);
   }
 
+  const updateTask = (id, isCompleted) => {
+
+
+  }
+
   return (
     <>
       {taskList.map((task) => {
         return (
           <li key={task.id}>
-          <TaskItem task={task} setTaskList={setTaskList}/><button id={task.id} onClick={deleteTask}>Delete</button>
+          <TaskItem taskProp={task} setTaskList={setTaskList} updateTask={updateTask}/><button id={task.id} onClick={deleteTask}>Delete</button>
           </li>
       );
       })}
